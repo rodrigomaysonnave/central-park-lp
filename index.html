@@ -128,6 +128,31 @@
   .spec-item b{display:block;font-size:0.98rem;}
   .spec-item span{font-size:0.88rem;opacity:0.75;}
 
+  /* PLANTAS */
+  .plantas-intro{max-width:680px;margin-bottom:36px;}
+  .plantas-intro h2{font-size:1.9rem;}
+  .plantas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .planta-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(44,36,22,0.08);}
+  .planta-card img{width:100%;background:#fff;}
+  .planta-card .planta-body{padding:22px 24px 26px;}
+  .planta-card h3{font-size:1.2rem;margin-bottom:4px;}
+  .planta-card .planta-meta{font-size:0.8rem;color:var(--accent);margin-bottom:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;}
+  .planta-card ul{list-style:none;}
+  .planta-card li{font-size:0.85rem;padding:7px 0;border-bottom:1px solid rgba(44,36,22,0.08);padding-left:14px;position:relative;}
+  .planta-card li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);position:absolute;left:0;top:13px;}
+  .planta-card li:last-child{border-bottom:none;}
+
+  /* CAROUSEL */
+  .carousel-wrap{margin-top:44px;}
+  .carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .carousel::-webkit-scrollbar{display:none;}
+  .carousel .slide{flex:0 0 auto;width:380px;scroll-snap-align:start;border-radius:10px;overflow:hidden;position:relative;}
+  .carousel .slide img{width:100%;height:280px;object-fit:cover;display:block;border-radius:0;}
+  .carousel .slide .slide-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top, rgba(15,12,7,0.8), transparent);color:#fff;padding:16px 16px 12px;font-size:0.85rem;font-weight:600;}
+  .carousel-nav{display:flex;gap:10px;margin-top:18px;}
+  .carousel-nav button{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--text);background:transparent;cursor:pointer;font-size:1.1rem;color:var(--text);transition:all .2s ease;}
+  .carousel-nav button:hover{background:var(--text);color:#F5F0E8;}
+
   /* OBJECTIONS */
   .objections .wrap{max-width:920px;}
   .objections h2{font-size:2.1rem;margin-bottom:36px;max-width:700px;}
@@ -171,8 +196,11 @@
     .two-col.reverse .img-col{order:0;}
     .stats{grid-template-columns:1fr 1fr;}
     .spec-grid{grid-template-columns:1fr;}
+    .plantas-grid{grid-template-columns:1fr;}
     section{padding:70px 0;}
     .feature-full img{height:420px;}
+    .carousel .slide{width:280px;}
+    .carousel .slide img{height:220px;}
   }
 </style>
 </head>
@@ -203,6 +231,18 @@
       <p>Investir aqui é investir na única posição vertical dentro desse perímetro. Não existe um segundo Centro Histórico em Pelotas onde replicar esse endereço.</p>
     </div>
     <div class="img-col"><img src="img/acesso.jpg" alt="Acesso residencial do Central Park"></div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap two-col reverse">
+    <div class="img-col"><img src="img/praca-mapa.jpg" alt="Vista aérea mostrando o Central Park a poucos passos da Praça Coronel Pedro Osório"></div>
+    <div>
+      <p class="eyebrow">A praça como extensão do apartamento</p>
+      <h2>De frente para a Praça Coronel Pedro Osório.</h2>
+      <p>O Central Park nasce a poucos passos da principal praça do Centro Histórico de Pelotas — o ponto de encontro da cidade, com área verde generosa e arquitetura histórica ao redor.</p>
+      <p>Não é vista de folheto. É a praça, o comércio e o Centro Histórico funcionando como quintal, todos os dias, a pé.</p>
+    </div>
   </div>
 </section>
 
@@ -250,20 +290,70 @@
 </section>
 
 <section class="section-alt">
-  <div class="wrap two-col">
-    <div>
-      <p class="eyebrow">Engenharia por unidade, não por edifício</p>
-      <h2>Plantas para quem já sabe o que quer.</h2>
-      <div class="spec-grid">
-        <div class="spec-item"><div class="dot"></div><div><b>Medidor de água individual</b><span>Consumo de cada apartamento é seu, não rateado</span></div></div>
-        <div class="spec-item"><div class="dot"></div><div><b>Esquadrias de PVC, vidros duplos</b><span>Isolamento térmico e acústico de projeto</span></div></div>
-        <div class="spec-item"><div class="dot"></div><div><b>Sacada gourmet em todas as unidades</b><span>Plantas de 2 e 3 dormitórios</span></div></div>
-        <div class="spec-item"><div class="dot"></div><div><b>Ponto para lareira a gás</b><span>Closet nas suítes, acabamentos de alto padrão</span></div></div>
-        <div class="spec-item"><div class="dot"></div><div><b>Plantas customizáveis</b><span>O layout se ajusta ao comprador</span></div></div>
-        <div class="spec-item"><div class="dot"></div><div><b>Terraço com zenital de 40m² interno</b><span>Luz natural onde normalmente só chega em cobertura</span></div></div>
+  <div class="wrap">
+    <div class="two-col" style="margin-bottom:72px;">
+      <div>
+        <p class="eyebrow">Engenharia por unidade, não por edifício</p>
+        <h2>Plantas para quem já sabe o que quer.</h2>
+        <div class="spec-grid">
+          <div class="spec-item"><div class="dot"></div><div><b>Medidor de água individual</b><span>Consumo de cada apartamento é seu, não rateado</span></div></div>
+          <div class="spec-item"><div class="dot"></div><div><b>Esquadrias de PVC, vidros duplos</b><span>Isolamento térmico e acústico de projeto</span></div></div>
+          <div class="spec-item"><div class="dot"></div><div><b>Sacada gourmet em todas as unidades</b><span>Plantas de 2 e 3 dormitórios</span></div></div>
+          <div class="spec-item"><div class="dot"></div><div><b>Ponto para lareira a gás</b><span>Closet nas suítes, acabamentos de alto padrão</span></div></div>
+          <div class="spec-item"><div class="dot"></div><div><b>Plantas customizáveis</b><span>O layout se ajusta ao comprador</span></div></div>
+          <div class="spec-item"><div class="dot"></div><div><b>Terraço com zenital de 40m² interno</b><span>Luz natural onde normalmente só chega em cobertura</span></div></div>
+        </div>
+      </div>
+      <div class="img-col"><img src="img/dormitorio.jpg" alt="Dormitório Casal Closet do Central Park"></div>
+    </div>
+
+    <div class="plantas-intro">
+      <p class="eyebrow">3 plantas · rosa dos ventos em cada uma</p>
+      <h2>Escolha a unidade pela orientação solar, não só pela metragem.</h2>
+    </div>
+    <div class="plantas-grid">
+      <div class="planta-card">
+        <img src="img/planta-final-01-06.jpg" alt="Planta e orientação solar dos apartamentos final 01 e 06">
+        <div class="planta-body">
+          <h3>Final 01 e 06</h3>
+          <p class="planta-meta">03 dormitórios · sacada gourmet</p>
+          <ul>
+            <li>Lavabo</li>
+            <li>Espera para split</li>
+            <li>Closet</li>
+            <li>Garagem</li>
+            <li>Acabamento de alto padrão</li>
+          </ul>
+        </div>
+      </div>
+      <div class="planta-card">
+        <img src="img/planta-final-02-05.jpg" alt="Planta e orientação solar dos apartamentos final 02 e 05">
+        <div class="planta-body">
+          <h3>Final 02 e 05</h3>
+          <p class="planta-meta">03 dormitórios · sacada gourmet</p>
+          <ul>
+            <li>Lavabo</li>
+            <li>Espera para split</li>
+            <li>Closet</li>
+            <li>Garagem</li>
+            <li>Acabamento de alto padrão</li>
+          </ul>
+        </div>
+      </div>
+      <div class="planta-card">
+        <img src="img/planta-final-03-04.jpg" alt="Planta e orientação solar dos apartamentos final 03 e 04">
+        <div class="planta-body">
+          <h3>Final 03 e 04</h3>
+          <p class="planta-meta">02 dormitórios · sacada gourmet</p>
+          <ul>
+            <li>Lavabo</li>
+            <li>Espera para split</li>
+            <li>Garagem</li>
+            <li>Acabamento de alto padrão</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="img-col"><img src="img/dormitorio.jpg" alt="Dormitório Casal Closet do Central Park"></div>
   </div>
 </section>
 
@@ -274,6 +364,28 @@
       <p class="eyebrow">Áreas comuns mobiliadas e decoradas</p>
       <h2>Cada espaço, cuidadosamente projetado.</h2>
       <p>Coworking, playground, praças internas e salões de festas com acabamento de alto padrão como entrega, não como opcional de tabela. A arquitetura contemporânea do Central Park valoriza o detalhe em cada ambiente de uso comum.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <p class="eyebrow">Galeria de ambientes decorados</p>
+    <h2 style="font-size:1.9rem;max-width:640px;">Cada planta, com a sua própria personalidade.</h2>
+    <div class="carousel-wrap">
+      <div class="carousel" id="carousel">
+        <div class="slide"><img src="img/decorado-01-06.jpg" alt="Sala de estar decorada — Final 01 e 06"><div class="slide-label">Sala de Estar — Final 01 e 06</div></div>
+        <div class="slide"><img src="img/decorado-02-05.jpg" alt="Cozinha decorada — Final 02 e 05"><div class="slide-label">Cozinha — Final 02 e 05</div></div>
+        <div class="slide"><img src="img/decorado-03-04.jpg" alt="Sala de estar decorada — Final 03 e 04"><div class="slide-label">Sala de Estar — Final 03 e 04</div></div>
+        <div class="slide"><img src="img/dormitorio-sacada.jpg" alt="Dormitório Casal Sacada decorado"><div class="slide-label">Dormitório Casal Sacada</div></div>
+        <div class="slide"><img src="img/dormitorio.jpg" alt="Dormitório Casal Closet decorado"><div class="slide-label">Dormitório Casal Closet</div></div>
+        <div class="slide"><img src="img/salao-festas.jpg" alt="Salão de Festas Master decorado"><div class="slide-label">Salão de Festas Master</div></div>
+        <div class="slide"><img src="img/piscina-aquecida.jpg" alt="Piscina Aquecida"><div class="slide-label">Piscina Aquecida</div></div>
+      </div>
+      <div class="carousel-nav">
+        <button type="button" aria-label="Anterior" onclick="document.getElementById('carousel').scrollBy({left:-400,behavior:'smooth'})">←</button>
+        <button type="button" aria-label="Próximo" onclick="document.getElementById('carousel').scrollBy({left:400,behavior:'smooth'})">→</button>
+      </div>
     </div>
   </div>
 </section>
